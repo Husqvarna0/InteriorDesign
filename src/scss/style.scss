@@ -65,34 +65,40 @@ $responsiveType: 1;
 
 // Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
 body {
+
 	// Скролл заблоковано
 	.lock & {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
 	}
+
 	// Сайт завантажений
-	.loaded & {
-	}
+	.loaded & {}
 }
+
 // Оболонка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+
 	@supports (overflow: clip) {
 		overflow: clip;
 	}
+
 	// Притискаємо footer
-	> main {
+	>main {
 		flex: 1 1 auto;
 	}
+
 	// Фікс для слайдерів
-	> * {
+	>* {
 		min-width: 0;
 	}
 }
+
 // Обмежуючий контейнер ======================================================================================================================================================================================================================
 /*
 (i) Стилі будуть застосовуватись до
@@ -101,40 +107,54 @@ body {
 Сніппет (HTML): cnt
 */
 @if ($responsiveType==1) {
+
 	// Чуйна
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
 			max-width: rem($containerWidth);
 			margin: 0 auto;
 		}
+
 		@if ($containerPadding>0) {
 			@if ($maxWidthContainer>0) {
 				padding: 0 rem(math.div($containerPadding, 2));
-			} @else {
+			}
+
+			@else {
 				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
 				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
 			}
 		}
 	}
-} @else {
+}
+
+@else {
+
 	// Брейк-поїнтами
 	[class*="__container"] {
 		margin: 0 auto;
+
 		@if ($maxWidthContainer>0) {
 			max-width: rem($containerWidth);
-		} @else {
+		}
+
+		@else {
 			@if ($containerPadding>0) {
 				padding: 0 rem(math.div($containerPadding, 2));
 			}
 		}
+
 		@media (max-width: $pc) {
 			max-width: rem(970);
 		}
+
 		@media (max-width: $tablet) {
 			max-width: rem(750);
 		}
+
 		@media (max-width: $mobile) {
 			max-width: none;
+
 			@if ($containerPadding>0 and $maxWidthContainer>0) {
 				padding: 0 rem(math.div($containerPadding, 2));
 			}
@@ -153,5 +173,90 @@ body {
 @import "header";
 @import "footer";
 
-// Підключення стилів окремих сторінок
-@import "home";
+//========================================================================================================================================================
+.page {
+
+	&__main-block {}
+}
+
+.main-block {
+	position: relative;
+	padding: rem(203.5) rem(0);
+
+
+
+	&__container {
+
+		
+	}
+
+	&__body {
+
+		@include adaptiveValue("max-width", 570, 300);
+
+
+	}
+
+	&__header {}
+
+	&__title {
+		font-family: 'BN Chester Pro';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 66, 30);
+		line-height: math.div(64, 66);
+		letter-spacing: 0.01em;
+		color: #3D3737;
+
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 170%;
+		@include adaptiveValue("max-width", 382, 200);
+		margin: rem(32) rem(0) rem(54) rem(0);
+	}
+
+	&__link {
+		border: rem(2) solid $brownColor;
+		border-radius: rem(8);
+		font-weight: 700;
+		@include adaptiveValue("font-size", 16, 12);
+		line-height: math.div(24, 16);
+		text-transform: uppercase;
+		padding: rem(12) rem(34);
+		transition: all 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $brownColor;
+				color: #fff;
+			}
+		}
+	}
+
+	&__background {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		@include adaptiveValue("width", 705, 200);
+
+		@media (max-width:$mobile) {
+			position:absolute;
+			width: 100%;
+			height: 50%;
+		@include adaptiveValue("padding-top", 500, 600);
+
+
+			img {
+				position: absolute;
+				object-fit: cover;
+				top: auto;
+				height: auto;
+				width: 100%;
+
+			}
+		}
+	}
+}
