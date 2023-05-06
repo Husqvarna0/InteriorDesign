@@ -185,10 +185,7 @@ body {
 
 
 
-	&__container {
-
-		
-	}
+	&__container {}
 
 	&__body {
 
@@ -217,23 +214,7 @@ body {
 		margin: rem(32) rem(0) rem(54) rem(0);
 	}
 
-	&__link {
-		border: rem(2) solid $brownColor;
-		border-radius: rem(8);
-		font-weight: 700;
-		@include adaptiveValue("font-size", 16, 12);
-		line-height: math.div(24, 16);
-		text-transform: uppercase;
-		padding: rem(12) rem(34);
-		transition: all 0.3s ease 0s;
-
-		@media (any-hover: hover) {
-			&:hover {
-				background-color: $brownColor;
-				color: #fff;
-			}
-		}
-	}
+	&__link {}
 
 	&__background {
 
@@ -242,20 +223,312 @@ body {
 		top: 0;
 		@include adaptiveValue("width", 705, 200);
 
+		img {
+			position: absolute;
+			object-fit: cover;
+			bottom: 0;
+			height: auto;
+			width: 100%;
+
+			@media (max-width:$mobile) {
+				position: relative;
+			}
+		}
+
 		@media (max-width:$mobile) {
-			position:absolute;
+
 			width: 100%;
 			height: 50%;
-		@include adaptiveValue("padding-top", 500, 600);
 
 
-			img {
-				position: absolute;
-				object-fit: cover;
-				top: auto;
-				height: auto;
+
+
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.page {
+
+	&__about {}
+}
+
+.about {
+	padding: rem(71) rem(0);
+
+	background-color: #F4F4F4;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width:$mobile) {
+			flex-direction: column;
+			gap: rem(30);
+		}
+	}
+
+	&__header {
+		flex: 0 1 43%;
+
+	}
+
+	&__title {
+		max-width: rem(118);
+
+		@media (max-width:$mobile) {
+			max-width: 100%;
+		}
+
+
+	}
+
+	&__content {
+		flex: 0 1 57%;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(30);
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 12);
+		line-height: 170%;
+
+	}
+}
+
+
+//========================================================================================================================================================
+
+.page {
+
+	&__services {}
+}
+
+.services {
+	padding: rem(80) rem(0) rem(80) rem(0);
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+
+	&__header {}
+
+	&__title {}
+
+	&__content {
+		padding-top: rem(84);
+	}
+
+	&__columns {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(30);
+
+		@media (max-width:$tablet) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+
+		}
+
+		@media (max-width:$mobileSmall) {
+			grid-template-columns: 1fr;
+		}
+
+	}
+
+	&__column {}
+
+	&__link {
+		margin-top: rem(84);
+
+	}
+}
+
+.title {}
+
+.column-services {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__icon {
+		height: rem(92);
+		display: flex;
+		align-items: center;
+		justify-content: end;
+
+	}
+
+	&__label {
+		padding: rem(42) rem(0) rem(19) rem(0);
+		font-weight: 600;
+		@include adaptiveValue("font-size", 18, 14);
+		line-height: math.div(22, 18);
+		text-align: center;
+	}
+
+	&__text {
+		max-width: rem(270);
+		text-align: center;
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 12);
+		line-height: 170%;
+		color: $greyColor;
+	}
+}
+
+//========================================================================================================================================================
+
+
+.page {
+
+	&__portfolio {}
+}
+
+.portfolio {
+	background-color: #F4F4F4;
+	padding: rem(78) rem(0);
+
+	&__container {
+		position: relative;
+	}
+
+	&__header {
+		text-align: center;
+	}
+
+	&__title {}
+
+	&__tabs {}
+
+	&__link {
+		position: absolute;
+		top: rem(124);
+		right: rem(15);
+		font-weight: 600;
+		@include adaptiveValue("font-size", 16, 12);
+		line-height: math.div(20, 16);
+		text-decoration-line: underline;
+		transition: color 0.3s ease 0s;
+
+		@media (max-width:$mobile) {
+			
+			position: relative;
+
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $brownColor;
+			}
+		}
+	}
+}
+
+.title {}
+
+.tabs-portfolio {
+	margin-top: rem(85);
+
+	&__navigation {
+		display: flex;
+		@include adaptiveValue("column-gap", 59, 15);
+		column-gap: rem(59);
+
+		@media (max-width:$mobile) {
+			justify-content: center;
+
+		}
+		
+
+	}
+
+	&__title {
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 12);
+		line-height: math.div(19, 16);
+
+		&._tab-active {
+			color: $brownColor;
+		}
+
+		@media (max-width:$mobile) {
+			&:not(:last-child) {
+				padding-right: rem(15);
+			}
+		}
+	}
+
+	&__content {
+		margin-top: rem(28);
+
+		@media (max-width:$mobile) {
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(15);
+
+			button {
+				text-align: left;
 				width: 100%;
+			}
+		}
+	}
 
+	&__body {
+		@media (max-width:$mobile) {
+			padding: rem(30) rem(0);
+
+		}
+	}
+
+	&__images {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: rem(30);
+		row-gap: rem(20);
+
+		@media (max-width:$mobile) {
+			grid-template-columns: repeat(2, 1fr);
+			@include adaptiveValue("row-gap", 40, 10);
+
+		}
+
+		@media (max-width:$mobileSmall) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__image {
+		overflow: hidden;
+		border-radius: rem(10);
+
+		@media (max-width:$mobile) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		img {
+			border-radius: rem(10);
+			transition: all 0.3s ease 0s;
+
+			@media (any-hover: hover) {
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+
+			@media (max-width:$mobileSmall){
+				border-radius: rem(0);
+				
 			}
 		}
 	}
