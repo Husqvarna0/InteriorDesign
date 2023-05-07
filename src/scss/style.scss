@@ -419,7 +419,7 @@ body {
 		transition: color 0.3s ease 0s;
 
 		@media (max-width:$mobile) {
-			
+
 			position: relative;
 
 		}
@@ -446,7 +446,7 @@ body {
 			justify-content: center;
 
 		}
-		
+
 
 	}
 
@@ -526,10 +526,235 @@ body {
 				}
 			}
 
-			@media (max-width:$mobileSmall){
+			@media (max-width:$mobileSmall) {
 				border-radius: rem(0);
-				
+
 			}
+		}
+	}
+}
+
+
+//========================================================================================================================================================
+.page {
+
+	&__pricing {}
+}
+
+.pricing {
+	padding: rem(102) rem(0);
+
+	&__container {}
+
+	&__header {
+		text-align: center;
+	}
+
+	&__title {}
+
+	&__content {
+		padding-top: rem(70);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__columns {
+		display: flex;
+		@include adaptiveValue("gap", 82, 55);
+
+		@media (max-width:$tablet) {
+			flex-direction: column;
+		}
+
+	}
+
+	&__column {
+
+		span {
+			width: rem(194);
+			display: block;
+			border-bottom: 1px solid $brownColor;
+			margin: rem(27) rem(0);
+
+		}
+	}
+
+
+}
+
+
+
+.column-pricing-main {
+	color: #fff;
+
+	span {
+		width: rem(194);
+		display: block;
+		border-bottom: 1px solid #fff;
+		margin: rem(27) rem(0);
+	}
+
+	.column-pricing__button {
+		border: 2px solid #fff;
+		background: #fff;
+		color: $mainColor;
+		transition: color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+			}
+		}
+
+		@media (max-width:$tablet) {
+			background: $brownColor;
+			border: 0px;
+			outline-color: #fff;
+			color: #fff;
+			width: 100%;
+
+		}
+
+	}
+
+	.column-pricing-price {
+		&__duration {
+			@media (max-width:$tablet) {
+				color: #fff;
+			}
+		}
+	}
+
+	@media (max-width:$tablet) {
+
+		&::before {
+			position: absolute;
+			bottom: rem(42);
+			z-index: 5;
+			left: rem(-2);
+			content: '';
+			height: rem(1);
+			width: rem(274);
+			background: #fff;
+		}
+	}
+
+}
+
+.column-pricing {
+	padding: rem(32) rem(38);
+	text-align: center;
+	background-color: #FDFBF8;
+	border: 2px solid #D3A265;
+	border-radius: rem(10);
+
+	@media (max-width:$tablet) {
+		padding: rem(32) rem(38) rem(76) rem(38);
+		position: relative;
+		border: 1px solid #D3A265;
+	}
+
+	&.column-pricing-main {
+		background-color: $brownColor;
+	}
+
+	&__title {
+		font-family: 'BN Chester Pro';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 24, 20);
+		line-height: math.div(23, 24);
+
+		&:not(:last-child) {
+			padding-bottom: rem(31);
+		}
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(7);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("row-gap", 13, 5);
+
+	}
+
+	&__item {}
+
+	&__link {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 15, 12);
+
+	}
+
+	&__button {
+		display: inline-block;
+		margin-top: rem(54);
+		padding: rem(12) rem(34);
+		font-weight: 700;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(24, 16);
+		text-transform: uppercase;
+		border: 2px solid $brownColor;
+		border-radius: rem(8);
+		transition: background-color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $brownColor;
+			}
+		}
+
+		.column-pricing-main {
+			border: 2px solid #fff;
+			background: #fff;
+			color: $mainColor;
+		}
+
+		@media (max-width:$tablet) {
+			position: absolute;
+			bottom: 0;
+			background-color: $brownColor;
+			width: 100%;
+			color: #fff;
+			left: 0;
+			padding: rem(11) rem(34);
+			border-radius: rem(0) rem(0) rem(8) rem(8);
+		}
+	}
+
+
+}
+
+.column-pricing-price {
+	@media (max-width:$tablet) {
+		flex-direction: row;
+		column-gap: rem(13);
+		align-items: flex-end;
+		justify-content: center;
+	}
+
+	&__value {
+		font-family: 'BN Chester Pro';
+		font-weight: 400;
+		@include adaptiveValue("font-size", 44, 30);
+		line-height: math.div(43, 44);
+
+	}
+
+	&__duration {
+		font-family: 'BN Chester Pro';
+		font-style: normal;
+		font-weight: 500;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: math.div(17, 18);
+
+		@media (max-width:$tablet) {
+			color: #BBBBBB;
 		}
 	}
 }
