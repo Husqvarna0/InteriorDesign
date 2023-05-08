@@ -11,7 +11,8 @@
 		color: $brownColor;
 	}
 }
-.link-button{
+
+.link-button {
 	border: rem(2) solid $brownColor;
 	border-radius: rem(8);
 	font-weight: 700;
@@ -20,8 +21,9 @@
 	text-transform: uppercase;
 	padding: rem(12) rem(34);
 	display: block;
-	width: fit-content;		
+	width: fit-content;
 	transition: all 0.3s ease 0s;
+
 	@media (any-hover: hover) {
 		&:hover {
 			background-color: $brownColor;
@@ -29,3 +31,6 @@
 		}
 	}
 }
+
+//========================================================================================================================================================
+
