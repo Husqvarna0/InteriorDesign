@@ -183,9 +183,22 @@ body {
 	position: relative;
 	padding: rem(203.5) rem(0);
 
+	@media (max-width:$tablet) {
+		padding: rem(203.5) rem(0) rem(0) rem(0);
+
+		
+	}
 
 
-	&__container {}
+	&__container {
+
+		@media (max-width:$tablet) {
+			h1:has(+ h2) {
+				margin: 0 0 0.25rem 0;
+			 }
+		}
+
+	}
 
 	&__body {
 
@@ -218,31 +231,23 @@ body {
 
 	&__background {
 
-		position: absolute;
-		right: 0;
-		top: 0;
-		@include adaptiveValue("width", 705, 200);
-
 		img {
 			position: absolute;
 			object-fit: cover;
 			bottom: 0;
-			height: auto;
-			width: 100%;
+			right: 0;
+			top: 0;
+			height: 100%;
+			@include adaptiveValue("width", 705, 200);
 
-			@media (max-width:$mobile) {
+			@media (max-width:$tablet) {
 				position: relative;
+				width: 100%;
 			}
 		}
 
-		@media (max-width:$mobile) {
-
-			width: 100%;
-			height: 50%;
-
-
-
-
+		@media (max-width:$tablet) {
+			padding-top: rem(40);
 		}
 	}
 }
@@ -424,7 +429,7 @@ body {
 			text-align: center;
 			top: rem(40);
 			left: rem(0);
-		
+
 
 		}
 
@@ -533,7 +538,7 @@ body {
 
 			@media (max-width:$mobileSmall) {
 				border-radius: rem(0);
-			
+
 			}
 		}
 	}
@@ -604,7 +609,7 @@ body {
 		border: 2px solid #fff;
 		background: #fff;
 		color: $mainColor;
-		transition: color 0.3s ease 0s;
+		transition: all 0.3s ease 0s;
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -805,6 +810,7 @@ body {
 	}
 
 	&__body {
+		position: relative;
 		background-color: #fff;
 		border-radius: rem(10);
 		@include adaptiveValue("padding-top", 36, 25);
@@ -812,7 +818,15 @@ body {
 		@include adaptiveValue("padding-bottom", 58, 34);
 		@include adaptiveValue("padding-right", 43, 26);
 
-		@media (max-width:$tablet) {}
+		&::before {
+			content: '';
+			position: absolute;
+			top: rem(141);
+			left: 0;
+			height: rem(1);
+			width: 100%;
+			border-bottom: 1px solid #DCD1BB;
+		}
 
 	}
 
@@ -861,6 +875,8 @@ body {
 
 	&__image {
 		img {
+			position: relative;
+			z-index: 5;
 			border-radius: 50%;
 		}
 	}
@@ -911,7 +927,7 @@ body {
 
 .swiper-pagination {
 	position: absolute;
-	bottom: rem(-42);
+	
 }
 
 .swiper-pagination-bullet {
@@ -926,3 +942,44 @@ body {
 	}
 
 }
+
+//========================================================================================================================================================
+.page {
+
+	&__answear {}
+}
+
+.answear {
+	padding: rem(73) rem(0);
+
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("column-gap", 337, 100);
+
+
+		@media (max-width:$mobile) {
+			flex-direction: column;
+			row-gap: rem(50);
+		}
+	}
+
+	&__header {
+		max-width: rem(256);
+
+		@media (max-width:$mobile) {
+			max-width: none;
+		}
+	}
+
+	&__title {}
+
+	&__call {}
+}
+
+.title {}
+
+.link-button {}
+
+//========================================================================================================================================================
